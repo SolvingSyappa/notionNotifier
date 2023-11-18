@@ -22,14 +22,16 @@ function Forum(){
 
         event.preventDefault();
 
-        axios.post('http://localhost:3001/send-email', {
+        axios.post('http://localhost:8080/send-email', {
             emails: emails,
             message: message
         })
         .then((response) => {
             console.log(response);
+            alert(response.data.message + "\n" + response.data.data.messageId)
         }).catch((error) => {
             console.log(error);
+            alert(error.message);
         });
     }
 
